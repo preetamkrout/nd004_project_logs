@@ -19,10 +19,10 @@ def connect(database_name="news"):
         print("Unable to connect to DB")
 
 
-def print_output(out_list, count_unit="views", quotes=""):
+def print_output(out_list, count_unit=" views", quotes=""):
     for out_obj in out_list:
         print("{quotes}{out_obj[0]}{quotes} -- "
-              "{out_obj[1]} {count_unit}".format(out_obj=out_obj,
+              "{out_obj[1]}{count_unit}".format(out_obj=out_obj,
                                                  count_unit=count_unit,
                                                  quotes=quotes))
 
@@ -34,7 +34,7 @@ def print_popular_articles(cursor):
 
     most_popular_articles = cursor.fetchall()
     print("Most popular three articles of all time:")
-    print_output(most_popular_articles, "views", "\"")
+    print_output(most_popular_articles, " views", "\"")
 
 
 def print_popular_authors(cursor):
@@ -61,7 +61,7 @@ def print_high_errors(cursor):
 
     error_days = cursor.fetchall()
     print("\nWhich days did more than 1% of requests lead to errors?")
-    print_output(error_days, "errors")
+    print_output(error_days, "% errors")
 
 
 def execute_report():
